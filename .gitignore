@@ -40,6 +40,11 @@ Desktop.ini
 # Claude local settings
 .claude/settings.local.json
 
+# Documentation and analysis files (keep local only)
+.understand-anything/
+*.md
+*.xlsx
+
 # Build output directories (keep structure, exclude contents)
 Listings/*
 Objects/*
