@@ -756,6 +756,16 @@
               <FilePath>..\Middlewares\Algorithm\step_algo.c</FilePath>
             </File>
             <File>
+              <FileName>fall_detect.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\Algorithm\fall_detect.c</FilePath>
+            </File>
+            <File>
+              <FileName>nn_inference.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\Algorithm\nn_inference.c</FilePath>
+            </File>
+            <File>
               <FileName>debug_serial.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Middlewares\Utils\debug_serial.c</FilePath>

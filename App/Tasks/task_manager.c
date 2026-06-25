@@ -50,6 +50,9 @@ void StartTask(void *argument)
     xTaskCreate(KeyProcessTask, "KeyTask", TASK_STACK_SIZE_KEY, NULL, TASK_PRIORITY_KEY, &KeyTaskHandle);
     xTaskCreate(MPU6050Task, "MPUTask", TASK_STACK_SIZE_MPU6050, NULL, TASK_PRIORITY_MPU6050, &MPU6050TaskHandle);
     printf("[DBG] All tasks created\r\n");
+#if FALL_DETECT_ENABLE
+    printf("[DBG] Fall Detection: ENABLED (pre-filter=%.2fg)\r\n", FALL_PRE_FILTER_THRESH);
+#endif
 
     vTaskDelete(NULL);
 }

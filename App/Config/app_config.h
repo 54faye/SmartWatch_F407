@@ -57,8 +57,19 @@
 /* ============================================================================ */
 /*                            MPU6050����                                    */
 /* ============================================================================ */
+#define FALL_DETECT_ENABLE          1    /* Fall detection: 1=on, 0=off */
 #define MPU6050_SAMPLE_PERIOD_FAST  5    /* MPU6050���ٲ������� 5ms (200Hz) */
-#define MPU6050_SAMPLE_PERIOD_SLOW  100  /* MPU6050���ٲ������� 100ms (10Hz) */
+#define MPU6050_SAMPLE_PERIOD_SLOW  100
+
+/* ============================================================================ */
+/*                            Fall Detection Config                              */
+/* ============================================================================ */
+#define FALL_WINDOW_SIZE            50   /* Sliding window samples */
+#define FALL_PRE_FILTER_THRESH      0.8f /* Accel diff threshold (g) */
+#define FALL_PROB_THRESHOLD         0.5f /* NN probability threshold */
+#define FALL_CONFIRM_WINDOWS        2    /* Consecutive windows to confirm */
+#define FALL_COOLDOWN_SEC           10   /* Minimum seconds between alerts */
+#define FALL_ALERT_DURATION_SEC     5    /* Alert LED blink duration (sec) */  /* MPU6050���ٲ������� 100ms (10Hz) */
 
 /* ============================================================================ */
 /*                            ��Դ��������                                         */

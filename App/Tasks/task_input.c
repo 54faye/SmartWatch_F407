@@ -4,8 +4,8 @@
 #include "bsp_key.h"
 
 /**
-  * @brief  °´¼ü´¦ÀíÈÎÎñ - ´¦Àí°´¼üÊÂ¼þ²¢ÇÐ»»Ò³Ãæ
-  * @param  argument: Î´Ê¹ÓÃ
+  * @brief  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ð»ï¿½Ò³ï¿½ï¿½
+  * @param  argument: Î´Ê¹ï¿½ï¿½
   * @retval None
   */
 void KeyProcessTask(void *argument)
@@ -14,24 +14,28 @@ void KeyProcessTask(void *argument)
     
     while(1)
     {
-        /* ×èÈûµÈ´ý°´¼üÏûÏ¢£¬³¬Ê±100ms */
+        /* ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ê±100ms */
         if(xQueueReceive(KeyQueue, &KeyNum, pdMS_TO_TICKS(100)) == pdPASS)
         {
-            /* »½ÐÑÆÁÄ» */
+            /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä» */
             IsScreenOn = 1;
             LastActionTime = xTaskGetTickCount();
 
-            /* µ÷ÓÃUI¹ÜÀíÆ÷´¦Àí°´¼ü */
+            if (FallAlertActive) {
+                FallAlertActive = 0;
+            }
+
+            /* ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
             UI_HandleKey(KeyNum);
         }
         
-        vTaskDelay(pdMS_TO_TICKS(10)); // 10msÑÓÊ±
+        vTaskDelay(pdMS_TO_TICKS(10)); // 10msï¿½ï¿½Ê±
     }
 }
 
 /**
-  * @brief  ·¢ËÍ°´¼üÏûÏ¢µ½¶ÓÁÐ
-  * @param  KeyNum: °´¼üÖµ
+  * @brief  ï¿½ï¿½ï¿½Í°ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  * @param  KeyNum: ï¿½ï¿½ï¿½ï¿½Öµ
   * @retval None
   */
 void SendKeyToQueue(uint8_t KeyNum)

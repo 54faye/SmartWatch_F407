@@ -22,6 +22,7 @@ extern SemaphoreHandle_t OLEDMutex;
 extern uint8_t MPU6050_Available;
 extern volatile uint8_t IsScreenOn;
 extern volatile TickType_t LastActionTime;
+extern volatile uint8_t FallAlertActive;
 
 /* �ⲿ�ӿں��� */
 void SendKeyToQueue(uint8_t KeyNum);
